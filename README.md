@@ -1,5 +1,5 @@
 # EJBindingWebSocket
-An [Ejecta](https://github.com/phoboslab/Ejecta) extension that introduces WebSockets support.
+An [Ejecta](https://github.com/phoboslab/Ejecta) extension to introduce WebSocket support.
 
 ## Setup
 EJBindingWebSocket depends on [SocketRocket](https://github.com/square/SocketRocket), so add all the files in [SocketRocket/SocketRocket](https://github.com/square/SocketRocket/tree/master/SocketRocket) to the Ejecta project, followed by `EJBindingWebSocket.h` and `EJBindingWebSocket.m`.
