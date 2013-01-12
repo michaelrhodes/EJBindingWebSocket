@@ -16,6 +16,10 @@ socket.addEventListener('close', function() {
   clear()
 })
 
+socket.addEventListener('error', function(error) {
+  console.log(error)
+})
+
 var touched = function(e) {
   var coords = { x: e.touches[0].pageX, y: e.touches[0].pageY }
   draw(coords)
