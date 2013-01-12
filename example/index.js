@@ -17,11 +17,14 @@ socket.addEventListener('close', function() {
 })
 
 socket.addEventListener('error', function(error) {
-  console.log(error)
+	console.log(error)
 })
 
 var touched = function(e) {
-  var coords = { x: e.touches[0].pageX, y: e.touches[0].pageY }
+  var coords = {
+		x: e.touches[0].pageX / width_ratio,
+		y: e.touches[0].pageY / height_ratio
+	}
   draw(coords)
   socket.send(
     JSON.stringify(coords)
@@ -30,26 +33,33 @@ var touched = function(e) {
 
 // UI
 
-var w = window.innerWidth
-var h = window.innerHeight
+var width = 320
+var height = 480
+var device_width = window.innerWidth
+var device_height = window.innerHeight
+var width_ratio = device_width / width
+var height_ratio = device_height / height
+
 var canvas = document.getElementById('canvas')
 var ctx = canvas.getContext('2d')
 var radius = 22
 
-canvas.width = w
-canvas.height = h
+canvas.width = device_width
+canvas.height = device_height
 canvas.imageSmoothingEnabled = true
 ctx.strokeStyle = '#ffffff'
 ctx.lineWidth = 4
 
 var clear = function() {
-  ctx.clearRect(0, 0, w, h)
+  ctx.clearRect(0, 0, device_width, device_height)
 }
 
 var draw = function(coords) {
+	var x = coords.x * width_ratio
+	var y = coords.y * height_ratio
   clear()
   ctx.beginPath()
-  ctx.arc(coords.x, coords.y, radius, 0 , 2 * Math.PI, false)
+  ctx.arc(x, y, radius, 0 , 2 * Math.PI, false)
   ctx.stroke()
   ctx.closePath()
 }
