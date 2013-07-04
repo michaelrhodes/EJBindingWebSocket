@@ -11,15 +11,15 @@ Unlike Ejecta, SocketRocket requires ARC. Because of this, you will need to add 
 
 ### Usage
 ```js
-	var socket = new Ejecta.WebSocket('ws://192.168.0.12:8787')
-	
-	socket.addEventListener('open', function() {})
-	socket.addEventListener('message', function(message) {})
-	socket.addEventListener('error', function(error) {})
-	socket.addEventListener('close', function() {})
-	
-	socket.send('string')
-	socket.close()
+var socket = new Ejecta.WebSocket('ws://192.168.0.2:8080')
+
+socket.addEventListener('open', function() {})
+socket.addEventListener('message', function(message) {})
+socket.addEventListener('error', function(error) {})
+socket.addEventListener('close', function() {})
+
+socket.send('string')
+socket.close()
 ```
 	
 #### Example
